@@ -6,71 +6,79 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>What the Giphy?!?!</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+    <script src='http://code.jquery.com/jquery-2.1.3.min.js'></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
-<body>
-    <h1>What the Giphy?!?!</h1>
+<body class="grey darken-4">
+
+<nav class="grey darken-3">
+
+    <div class="container">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo center ">GIF MAGIC</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="https://github.com/anthonydelgado/gif-magic" target="_blank">GitHub</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <br>
+    <nav class="blue-grey darken-4">
+        <div class="nav-wrapper">
+            <form>
+                <div class="input-field">
+                    <input id="search" type="search" required>
+                    <label for="search"><i class="material-icons">search</i></label>
+                    <i class="material-icons">close</i>
+                </div>
+            </form>
+        </div>
+    </nav>
+    <br>
+
     <div id="buttons">
-        <button data-person="arnold schwarzenegger">I'll be back</button>
-        <button data-person="michael j fox">My happiness grows in direct proportion to my acceptance, and in inverse proportion to my expectations.</button>
+        <div class="chip grey darken-3 white-text waves-effect waves-light" data-person="mr robot">mr robot<img
+                src="https://media2.giphy.com/media/y4fdsKDUcAMog/giphy.gif"><i class="close material-icons">close</i>
+        </div>
+        <div class="chip grey darken-3 white-text waves-effect waves-light" data-person="fight club">fight club<img
+                src="http://media0.giphy.com/media/t1p8Mnm8UbK0w/giphy.gif"><i class="close material-icons">close</i>
+        </div>
+        <div class="chip grey darken-3 white-text waves-effect waves-light" data-person="the matrix">the matrix<img
+                src="http://media0.giphy.com/media/vlq3uJDc8LvA4/giphy.gif"><i class="close material-icons">close</i>
+        </div>
+        <div class="chip grey darken-3 white-text waves-effect waves-light" data-person="space jam">space jam<img
+                src="http://media1.giphy.com/media/121iG0YITNozFm/giphy.gif"><i class="close material-icons">close</i>
+        </div>
+        <div class="chip grey darken-3 white-text waves-effect waves-light" data-person="star wars">star wars<img
+                src="http://media1.giphy.com/media/xT9DPGg8VG49Kzmvza/giphy.gif"><i
+                class="close material-icons">close</i></div>
+        <div class="chip grey darken-3 white-text waves-effect waves-light" data-person="back to the future">back to the
+            future<img src="http://media0.giphy.com/media/Bu6GjnkHjs568/giphy.gif"><i
+                    class="close material-icons">close</i></div>
 
-        <!-- STEP ONE: Open this file in the browser and click on the buttons. Watch what happens -->
-
-        <!-- STEP TWO: between the dashed lines below
-            * add three more buttons
-            * add a data-person attribute of famous people you know
-            * with a quote said by them -->
-
-        <button data-person="steve jobs">Good artists copy; great artists steal</button>
-        <button data-person="urkel">Did I do that?</button>
-        <button data-person="jay-z">99 problems but my code ain't one</button>
-        <!-- **************************************** -->
-
-        <!-- YOUR BUTTONS GO HERE!!!!!! Obviously delete this text after you put them between the dashed lines here.  -->
-
-        <!-- **************************************** -->
-
-
-        <!-- STEP THREE: open this file in the browser and click on your buttons. If they don't work, then fix your buttons -->
-
-        <!-- STEP FOUR: go over the JavaScript with your partners, and explain the lines of code to each other. -->
 
     </div>
 
-    <div id="gifsAppearHere">
+    <div id="gifsAppearHere" class="row">
     </div>
 
-<script src='http://code.jquery.com/jquery-2.1.3.min.js'></script>
-<script type="text/javascript">
-    $('button').on('click', function() {
-        var p = $(this).data('person');
-        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + p + "&api_key=dc6zaTOxFJmzC&limit=10";
+</div>
+<footer class="page-footer grey darken-3">
+    <div class="footer-copyright">
+        <div class="container">
 
-        $.ajax({
-                url: queryURL,
-                method: 'GET'
-            })
-            .done(function(response) {
-                var results = response.data;
+            <a class="grey-text text-lighten-4" href="#!">© 2016 Anthony Delgado</a>
+        </div>
+    </div>
+</footer>
 
-                for (var i = 0; i < results.length; i++) {
-                    var gifDiv = $('<div class="item">')
-
-                    var rating = results[i].rating;
-
-                    var p = $('<p>').text("Rating: " + rating);
-
-                    var personImage = $('<img>');
-                    personImage.attr('src', results[i].images.fixed_height.url);
-
-                    gifDiv.append(p)
-                    gifDiv.append(personImage)
-
-                    $('#gifsAppearHere').prepend(gifDiv);
-                }
-            });
-    });
-</script>
+<script src='js/api.js'></script>
 </body>
-
 </html>
