@@ -1,0 +1,10 @@
+{
+    "name": "user/wtg",
+    "authors": [
+        {
+            "name": "Anthony Delgado",
+            "email": "me@anthonydelgado.me"
+        }
+    ],
+    "require": {}
+}
