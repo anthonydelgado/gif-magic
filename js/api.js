@@ -14,6 +14,7 @@ $(document).ready(function () {
     });
 
     var searchInput = $('#search');
+    var gifResults = $('#gifsAppearHere');
 
     function loadGiphy(term) {
 
@@ -21,6 +22,7 @@ $(document).ready(function () {
             var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + term + "&api_key=dc6zaTOxFJmzC&limit=24";
         } else {
             var queryURL = "http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC&limit=24";
+            term = 'trending';
         }
 
         $.ajax({
@@ -30,7 +32,14 @@ $(document).ready(function () {
             .done(function (response) {
                 var results = response.data;
                 console.log(results);
-                $('#gifsAppearHere').empty();
+
+                //Empty last search
+                gifResults.empty();
+
+                //Print the Search term
+                $('#hashtag').text('#' + term.toUpperCase());
+                // gifResults.prepend(gifDiv);
+
                 for (var i = 0; i < results.length; i++) {
                     var gifDiv = $('<div class="col s6 m3">');
                     var cardDiv = $('<div class="card">');
@@ -52,7 +61,7 @@ $(document).ready(function () {
 //                      cardDiv.append(p)
                     gifDiv.append(cardDiv);
 
-                    $('#gifsAppearHere').prepend(gifDiv);
+                    gifResults.prepend(gifDiv);
                 }
             });
     }
