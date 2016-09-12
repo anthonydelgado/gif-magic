@@ -1,3 +1,7 @@
 img.gif-toggle {
     cursor: pointer;
 }
+
+.card .card-image img { 
+    height: 250px;
+}
