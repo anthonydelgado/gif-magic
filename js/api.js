@@ -19,9 +19,9 @@ $(document).ready(function () {
     function loadGiphy(term) {
 
         if (term) {
-            var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + term + "&api_key=dc6zaTOxFJmzC&limit=24";
+            var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + term + "&api_key=dc6zaTOxFJmzC&limit=24";
         } else {
-            var queryURL = "http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC&limit=24";
+            var queryURL = "https://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC&limit=24";
             term = 'trending';
         }
 
@@ -69,7 +69,7 @@ $(document).ready(function () {
     function addChip(name) {
 
 
-        var queryURL = 'http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=' + name;
+        var queryURL = 'https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=' + name;
 
         $.ajax({
             url: queryURL,
